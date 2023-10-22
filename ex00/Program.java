@@ -10,7 +10,7 @@ public class Program {
 
     public static void main(String[] args) {
         Program p = new Program();
-        String strFilePath, lineFile = " ";
+        String strFilePath, lineFile = null;
         Map<String, String> signatures = new HashMap<>();
         p.getSignatures(signatures);
         while(!(strFilePath = p.filePath.nextLine()).equals("42")) {
@@ -24,8 +24,7 @@ public class Program {
         boolean statusDef = false;
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (result.contains(entry.getValue()))  {
-                String txtResult = "./ex00/result.txt";
-                try(FileOutputStream resultFile = new FileOutputStream(txtResult, true)) {
+                try(FileOutputStream resultFile = new FileOutputStream("./ex00/result.txt", true)) {
                     byte[] buffer = entry.getKey().getBytes();
                     resultFile.write(buffer);
                     resultFile.write('\n');
@@ -70,8 +69,8 @@ public class Program {
     private void getSignatures(Map<String, String> map) {
         String signaturesStr;
         String[] signaturesArr;
-        String txtSignatures = "./ex00/signatures.txt";
-        try(FileInputStream file = new FileInputStream(txtSignatures);
+
+        try(FileInputStream file = new FileInputStream("./ex00/signatures.txt");
             Scanner bufBytes = new Scanner(file)) {
             while(bufBytes.hasNextLine()) {
                 signaturesStr = bufBytes.nextLine();

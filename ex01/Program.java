@@ -7,8 +7,8 @@ import static java.lang.Math.*;
 public class Program {
     private final List<String> linesFileA = new ArrayList<>();
     private final List<String> linesFileB = new ArrayList<>();
-    private final List<Integer> occurrenceA = new Vector<>();
-    private final List<Integer> occurrenceB = new Vector<>();
+    private final List<Integer> occurrenceA = new ArrayList<>();
+    private final List<Integer> occurrenceB = new ArrayList<>();
     private final SortedSet<String> dictionary = new TreeSet<>();
 
     public static void main(String[] files) {
