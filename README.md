@@ -1,18 +1,21 @@
 # File-system-management
-Реализация программ для управления файловой системой
+Реализация программ для управления файловой системой.
 
 ## Introduction
 - Для написания программ использовалась версия Java 8.
 - Отладка кода воспроизводилась на Intellij IDEA CE.
 - Правила форматирования кода соответствуют общепринятым стандартам [Oracle](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html).
 
+## Contents
+1. [Exercise 00](#exercise-00)
+2. [Exercise 01](#exercise-01)
+3. [Exercise 02](#exercise-02)
+
 ### Exercise 00
 
-Turn-in directory | ex00
----|---
-Files to turn-in |	*.java, signatures.txt
-**Permissions**
-Recommended types |	Java Collections API (`List<T>`, `Map<K`, `V>`, etc.), InputStream, OutputStream, FileInputStream, FileOutputStream
+- Программа расположена в директории: ex00;
+- Файл для сдачи: Program.java, signatures.txt;
+- Типы(+ все методы этого типа): Java Collections API (`Map<K`, `V>`), FileInputStream, FileOutputStream.
 
 Реализовано приложение для анализа подписей произвольных файлов. Эта подпись позволяет определить тип содержимого файла и состоит из набора «магических чисел». Эти номера обычно расположены в начале файла. Например, подпись для типа файла PNG представлена первыми восемью байтами файла, которые одинаковы для всех изображений PNG:
 ```
@@ -37,11 +40,9 @@ PROCESSED
 
 ### Exercise 01
 
-Turn-in directory	| ex01|
----|---
-Files to turn-in |	*.java|
-**Permissions**
-Recommended types |	Java Collections API, Java IO|
+- Программа расположена в директории: ex01;
+- Файл для сдачи: Program.java, inputA.txt, inputB.txt;
+- Типы(+ все методы этого типа): Java Collections API, Java IO.
 
 Реализовано приложение, которое принимает два файла в качестве входных данных (оба файла передаются в качестве аргументов командной строки) и отображает результат их сравнения сходства (косинусная мера).
 
@@ -74,16 +75,14 @@ similarity = 5 / 9.1 = 0.54
 Пример работы программы:
 ```
 $ java Program inputA.txt inputB.txt
-Similarity = 0.54
+Similarity = 0.55
 ```
 
 ### Exercise 02
 
-Turn-in directory |	ex02
----|---
-Files to turn-in |	*.java
-**Permissions**
-Recommended types	| Java Collections API, Java IO, Files, Paths, etc.
+- Программа расположена в директории: ex02;
+- Файл для сдачи: Program.java;
+- Типы(+ все методы этого типа): Java Collections API, Java IO, Files, Paths, etc.
 
 Реализовано приложение, отображающее информацию о файлах, содержимом и размере папок, а также обеспечивающее функцию перемещения/переименования.
 
