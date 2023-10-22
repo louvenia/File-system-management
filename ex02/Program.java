@@ -9,17 +9,18 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Program {
-    private static final Scanner inCommands = new Scanner(System.in);
-    private static Path currentPath;
+    private final Scanner inCommands = new Scanner(System.in);
+    private Path currentPath;
 
     public static void main(String[] args) {
-        validatorArgs(args);
-        System.out.println(currentPath);
-        chooseCommand();
-        inCommands.close();
+        Program p = new Program();
+        p.validatorArgs(args);
+        System.out.println(p.currentPath);
+        p.chooseCommand();
+        p.inCommands.close();
     }
 
-    private static void validatorArgs(String[] args) {
+    private void validatorArgs(String[] args) {
         if(args.length != 1) {
             errorMessage("Enter the path to the folder");
         } else if(!args[0].startsWith("--current-folder=")) {
@@ -33,13 +34,13 @@ public class Program {
         }
     }
 
-    private static void errorMessage(String message) {
+    private void errorMessage(String message) {
         System.err.println(message);
         inCommands.close();
         System.exit(-1);
     }
 
-    private static void chooseCommand() {
+    private void chooseCommand() {
         String commandLine;
         String[] command;
         while(!(commandLine = inCommands.nextLine()).equals("exit")) {
@@ -61,7 +62,7 @@ public class Program {
         }
     }
 
-    private static void lsCommand(String[] command) {
+    private void lsCommand(String[] command) {
         if(command.length < 3) {
             Path lsPath = currentPath;
             if(command.length == 2) {
@@ -86,7 +87,7 @@ public class Program {
         }
     }
 
-    private static long determiningSizeDirectory(File listFolder, long size) {
+    private long determiningSizeDirectory(File listFolder, long size) {
         File[] listDirectory = listFolder.listFiles();
         for(int i = 0; i < Objects.requireNonNull(listDirectory).length; i++) {
             if(listDirectory[i].isDirectory()) {
@@ -98,7 +99,7 @@ public class Program {
         return size;
     }
 
-    private static void mvCommand(String[] command) {
+    private void mvCommand(String[] command) {
         if(command.length == 3) {
             try {
                 Path what = changePath(command[1]);
@@ -118,7 +119,7 @@ public class Program {
         }
     }
 
-    private static void cdCommand(String[] command) {
+    private void cdCommand(String[] command) {
         if(command.length == 2) {
             Path where = changePath(command[1]);
             if(Files.isDirectory(where)) {
@@ -132,7 +133,7 @@ public class Program {
         }
     }
 
-    private static Path changePath(String path) {
+    private Path changePath(String path) {
         Path wherePath = Paths.get(currentPath + "/" + path);
         return wherePath.normalize();
     }
